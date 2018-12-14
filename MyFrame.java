@@ -57,9 +57,9 @@ public class MyFrame extends JFrame
 			public void actionPerformed(ActionEvent event)
 			{
 				// get the number in the JTextField (numberFld instance field)
-				double x = Double.parseDouble(numberFld.getText());
+				int x = (int) Double.parseDouble(numberFld.getText());
 				// convert this number to an int
-				Math.round(x);
+				
 				// this number is either the number of squares or circles depending on btnName
 				// call the setData method of the MyPanel class by using the drawingPanel instance field
 				if(btnName == "Draw Circle")
@@ -69,7 +69,7 @@ public class MyFrame extends JFrame
 				
 				if(btnName == "Draw Squares")
 				{
-					
+					drawingPanel.setData(0, x);
 				}
 				
 			}
