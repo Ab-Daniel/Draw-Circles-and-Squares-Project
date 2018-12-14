@@ -26,21 +26,44 @@ public class MyPanel extends JPanel
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
 		
-		... // let count = the number of objects to be drawn
-		... // let size = the minimum of the width and height of the panel
-		... // then let gap between one circle or square and the next one is:  0.4 * size / count
+		// let count = the number of objects to be drawn
+		int count = numC + numS;
+		
+		// let size = the minimum of the width and height of the panel
+		double size = WIDTH+HEIGHT; 
+		
+		// then let gap between one circle or square and the next one is:  0.4 * size / count
+		double gap = 0.4 * size / count;
+		
 		// the above line assumes that the drawing will take place on the center 80% of the panel
 		
 		// determine the x and y coordinates of the center of the panel
-		...
-		...
+		double xCenter = HEIGHT/2;
+		
+		double yCenter = WIDTH/2;
 		
 		// within a loop:  draw the required number of circles
-		...
+		if(numS == 0)
+		{
+			
+			while(numC<0)
+			{
+				
+				
+				numC = numC - 1;
+			}
+			
+		}
 		
 		
 		// within a loop:  draw the required number of squares
-		...
+		if(numC == 0)
+		{
+			
+			
+			
+		}
+		
 	}
 	
 	/**
