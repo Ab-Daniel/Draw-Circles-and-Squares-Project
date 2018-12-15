@@ -30,11 +30,11 @@ public class MyFrame extends JFrame
 		
 		// make a "Draw Circles" button by calling makeButton and add it to the panel
 		JButton circleButton = makeButton("Draw Circles");
-		drawingPanel.add(circleButton);
+		panel.add(circleButton);
 		
 		// make a "Draw Squares" button by calling makeButton and add it to the panel
 		JButton squareButton = makeButton("Draw Squares");
-		drawingPanel.add(squareButton);
+		panel.add(squareButton);
 		
 		add(panel, BorderLayout.NORTH);
 	}
@@ -62,7 +62,7 @@ public class MyFrame extends JFrame
 				
 				// this number is either the number of squares or circles depending on btnName
 				// call the setData method of the MyPanel class by using the drawingPanel instance field
-				if(btnName == "Draw Circle")
+				if(btnName == "Draw Circles")
 				{
 					drawingPanel.setData(x, 0);
 				}
