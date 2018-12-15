@@ -30,37 +30,56 @@ public class MyPanel extends JPanel
 		int count = numC + numS;
 		
 		// let size = the minimum of the width and height of the panel
-		double size = WIDTH+HEIGHT; 
+		double size = Math.min(getWidth(), getHeight()) * .8; 
 		
 		// then let gap between one circle or square and the next one is:  0.4 * size / count
-		double gap = 0.4 * size / count;
+		double gap = size / count;
 		
 		// the above line assumes that the drawing will take place on the center 80% of the panel
 		
-		// determine the x and y coordinates of the center of the panel
-		double xCenter = HEIGHT/2;
+		// determine the x and y coordinates
+		double xCorner = (getWidth() - size ) /2;
 		
-		double yCenter = WIDTH/2;
+		double yCorner = (getHeight() - size ) /2;
 		
 		// within a loop:  draw the required number of circles
-		if(numS == 0)
+		if(numC > 0)
 		{
 			
-			while(numC<0)
+			while(count>0)
 			{
 				
+				Ellipse2D.Double circle = new Ellipse2D.Double(xCorner, yCorner, size, size);
+
+				g2.draw(circle);
+				count = count - 1;
 				
-				numC = numC - 1;
+				xCorner = xCorner + gap / 2;
+				yCorner = yCorner + gap / 2;
+				
+				size = size - gap;
 			}
 			
 		}
 		
 		
 		// within a loop:  draw the required number of squares
-		if(numC == 0)
+		if(numS > 0)
 		{
 			
-			
+			while(count>0)
+			{
+				
+				Rectangle2D.Double square = new Rectangle2D.Double(xCorner, yCorner, size, size);
+
+				g2.draw(square);
+				count = count - 1;
+				
+				xCorner = xCorner + gap / 2;
+				yCorner = yCorner + gap / 2;
+				
+				size = size -gap;
+			}
 			
 		}
 		
